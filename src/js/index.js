@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 
 import '../scss/index.scss';
 
@@ -15,8 +16,10 @@ const client = new ApolloClient({
 });
 
 const element = document.getElementById('content');
-ReactDOM.render(<ApolloProvider client={client}>
-  <App />
-</ApolloProvider>, element);
+ReactDOM.render( <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>, element);
 
 document.body.classList.remove('loading');
